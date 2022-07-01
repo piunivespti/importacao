@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script type="text/javascript">
+    function ajustaZoom() {
+        document.body.style.zoom = "98%" 
+    }
+</script>
+
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Simulador - Custos com Importação</title>
+</head>
+
+
+
+<body onload="ajustaZoom()">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for ('index')}}">$$$ Importação</a>
+        <button class="navbar-toggler"  data-toggle="collapse" data-target="#my-nav aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="my-nav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href= "{{ url_for ('index')}}"> Simulações <span class="sr-only">(Página atual)</span></a>
+            </li>
+            <li class="nav-item">
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href= "/criar"> Adicionar <span class="sr-only">(Página atual)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    
+        
+        <div class="container">
+   
+    

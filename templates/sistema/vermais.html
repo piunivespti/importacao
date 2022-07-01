@@ -1,0 +1,325 @@
+{% include 'header.html' %} 
+
+<br/>
+<br/>
+
+{% for simulacao in simulacao %}
+
+<div class="card">
+    <div class="card-header">
+        <center><strong><h4>Detalhes da Simulação - Inovice {{simulacao[3]}} </h4></strong></center>
+    </div>
+    <div class="card-body">
+        
+       <div class="card">
+         <div class="card-body">
+          
+          <center><h4 class="card-title">Custo total com importação: <strong> {{ "R$ %.2f" | format(simulacao[35] )   }} </strong> </h4> </center> 
+          <hr>
+         </div>
+         <center>
+            <h6>Composição de custos (em % aprox.): </h6>
+            Dados referentes ao acordo da operação: {{ " %.0f" | format(simulacao[36] )   }}%
+            <br>
+            Alíquotas - tributos federais e estaduais: {{ " %.0f" | format(simulacao[37] )   }}%
+            <br>
+            Despesas Aduaneiras: {{ " %.0f" | format(simulacao[38] )   }}%
+            <br>
+         </center>
+            <br>
+
+        </div>
+        <br>
+        <br>
+
+        <hr>
+
+        <br>
+        <br>
+
+
+        <h5 class="card-title">A) Dados referentes ao acordo da operação</h5>
+        <p class="card-text">
+
+
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Parâmetros</th>
+                    <th scope="col">Dados</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Data da Simulação:</th>
+                    <td>{{simulacao[1]}} </td>
+            
+                  </tr>
+                  <tr>
+                    <th scope="row">NCM:</th>
+                    <td>{{simulacao[2]}} </td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">Material:</th>
+                    <td> {{simulacao[4]}}</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Valor total do material em R$:</th>
+                    <td> {{ "R$ %.2f" | format(simulacao[5] )   }}</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Valor do frete internacional em R$:</th>
+                    <td> {{ "R$ %.2f" | format(simulacao[6] )   }}</td>
+                 </tr>
+
+                    <tr>
+                        <th scope="row">Valor do seguro internacional em R$:</th>
+                        <td> {{ "R$ %.2f" | format(simulacao[7] )   }}</td>
+
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Total de custos de movimentação e manuseio no porto de origem (THC):</th>
+                        <td> {{ "R$ %.2f" | format(simulacao[8] )   }}</td>
+
+                    </tr>
+
+                    <tr>
+                        <th scope="row">TOTAL PARCIAL:</th>
+                        <td> <strong>{{ "R$ %.2f" | format(simulacao[9] )   }}</strong> </td>
+
+                    </tr>
+
+                </tbody>
+              </table>
+
+
+
+
+
+              <br>
+              <br>
+
+              <hr>
+
+              <br>
+              <br>
+
+
+
+
+
+
+              <h5 class="card-title">B) Alíquotas - tributos federais e estaduais</h5>
+              <p class="card-text">
+      
+      
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Tributos</th>
+                          <th scope="col" align = "center">Alíquotas (em %)</th>
+                          <th scope="col" align = "center">Valores em R$</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Imposto de Importação (II):</th>
+                          <td align = "center">{{ "%.2f" | format(simulacao[10] )   }} </td>
+                          <td align = "center">{{ "R$ %.2f" | format(simulacao[15] )   }} </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Imposto sobre Produtos Industrializados (IPI):</th>
+                            <td align = "center">{{ "%.2f" | format(simulacao[11] )   }} </td>
+                            <td align = "center">{{ "R$ %.2f" | format(simulacao[16] )   }} </td>
+                            
+                        </tr>
+
+                        <tr>
+                            <th scope="row">PIS:</th>
+                            <td align = "center">{{ "%.2f" | format(simulacao[12] )   }} </td>
+                            <td align = "center">{{ "R$ %.2f" | format(simulacao[17] )   }} </td>
+                            
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">COFINS:</th>
+                            <td align = "center">{{ "%.2f" | format(simulacao[13] )   }} </td>
+                            <td align = "center">{{ "R$ %.2f" | format(simulacao[18] )   }} </td>
+                            
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Imposto sobre Circulação de Mercadorias e Serviços (ICMS):</th>
+                            <td align = "center">{{ "%.2f" | format(simulacao[14] )   }} </td>
+                            <td align = "center">{{ "R$ %.2f" | format(simulacao[19] )   }} </td>
+                            
+                        </tr>
+      
+                          <tr>
+                            <th scope="row">TOTAL PARCIAL:</th>
+                            <td align = "center"> - </td>
+                            <td align = "center"><strong>{{ "R$ %.2f" | format(simulacao[20] )   }}</strong> </td>
+      
+                          </tr>
+      
+                      </tbody>
+                    </table>
+
+
+
+
+
+                    <br>
+                    <br>
+      
+                    <hr>
+      
+                    <br>
+                    <br>
+
+
+                    <h5 class="card-title">C) Despesas Aduaneiras</h5>
+                    <p class="card-text">
+            
+            
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">Despesas</th>
+                                <th scope="col">Valores em R$</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Anuência de Licença de Importação:</th>
+                                <td>{{ "R$ %.2f" | format(simulacao[21] )   }} </td>
+                        
+                              </tr>
+                              <tr>
+                                <th scope="row">Taxa de Utilização do SISCOMEX:</th>
+                                <td>{{ "R$ %.2f" | format(simulacao[22] )   }} </td>
+            
+                              </tr>
+                              <tr>
+                                <th scope="row">Despesas com Liberação do BL (Agente de Carga):</th>
+                                <td> {{ "R$ %.2f" | format(simulacao[23] )   }} </td>
+                              </tr>
+            
+                              <tr>
+                                <th scope="row">Honorário Despachante Aduaneiro:</th>
+                                <td> {{ "R$ %.2f" | format(simulacao[24] )   }}</td>
+                              </tr>
+            
+                              <tr>
+                                <th scope="row">AFRMM - Adicional de Frete p/Renovação da Marinha Mercante:</th>
+                                <td> {{ "R$ %.2f" | format(simulacao[25] )   }}</td>
+                             </tr>
+            
+                                <tr>
+                                    <th scope="row">Transferência de CNTR PortoxEADI:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[26] )   }}</td>
+            
+                                </tr>
+            
+                                <tr>
+                                    <th scope="row">Devolução de CNTR Vazio:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[27] )   }}</td>
+            
+                                </tr>
+            
+                                <tr>
+                                    <th scope="row">Taxa de Segregação no Porto:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[28] )   }} </td>
+            
+                                </tr>
+            
+
+                                <tr>
+                                    <th scope="row">Armazenagem no Porto:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[29] )   }} </td>
+            
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">Taxa de movimentação de CNTR no Porto/Porto Seco:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[30] )   }} </td>
+            
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">Taxa de desova de CNTR no Porto/Porto Seco:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[31] )   }} </td>
+            
+                                </tr>
+
+                                
+                                <tr>
+                                    <th scope="row">Taxa de carregamento no Porto/Aeroporto/Porto Seco:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[32] )   }} </td>
+            
+                                </tr>                
+
+                                <tr>
+                                    <th scope="row">Entrega da Mercadoria no Armazém do Importador:</th>
+                                    <td> {{ "R$ %.2f" | format(simulacao[33] )   }} </td>
+            
+                                </tr>    
+
+
+
+
+                                <tr>
+                                    <th scope="row">TOTAL PARCIAL:</th>
+                                    <td> <strong>{{ "R$ %.2f" | format(simulacao[34] )   }}</strong> </td>
+            
+                                </tr>
+
+
+                            </tbody>
+                          </table>
+            
+            
+            
+            
+            
+                          <br>
+                          <br>
+            
+                          <hr>
+            
+                          <br>
+                          <br>
+            
+            
+            
+            
+            
+            
+                         
+
+
+
+
+
+
+
+        </p>
+    </div>
+
+
+
+</div>
+
+
+{% endfor %}
+
+{% include 'footer.html' %}

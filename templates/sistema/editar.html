@@ -1,0 +1,176 @@
+{% include 'header.html' %} 
+
+
+{% for simulacao in simulacao %}
+<br/>
+<br/>
+<form method="post" action="/atualizar" enctype="multipart/form-data">
+    
+    <div class="card">
+        <div class="card-header">
+            <center><strong><h4>Editar simulação</h4></strong></center>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><center>Dados da simulação</center></h5>
+            <p class="card-text">
+                
+                <h3> <b> A) Dados referentes ao acordo da operação </b> </h3>
+    <h4> Preecha novamente os valores em dólar (U$)</h4>
+    <div class="mb-3">
+        
+        <label for="" class="form-label">ID:</label>
+        <input type="text" class="form-control" value = "{{simulacao[0]}}" name="txtid" id="txtid" placeholder="">
+        <br/>
+        
+        <label for="" class="form-label">Data:</label>
+        <input type="date" class="form-control" value = "{{simulacao[1]}}" name="txtdataoper" id="txtdataoper" placeholder="">
+        <br/>
+    
+        <label for="" class="form-label">Invoice:</label>
+        <input type="text" class="form-control" name="txtinvoice" value = "{{simulacao[3]}}" id="txtinovice" placeholder="Insira aqui o número da Invoice">
+        <br/>
+    
+        <label for="" class="form-label">NCM:</label>
+        <input type="text" class="form-control" name="txtncm" value = "{{simulacao[2]}}" id="txtncm" placeholder="Insira aqui o ncm">
+        <br/>
+    
+        <label for="" class="form-label">Descrição:</label>
+        <input type="text" class="form-control" name="txtdescricao" value = "{{simulacao[4]}}" id="txtdescricao" placeholder="Descrição do produto">
+        <br/>
+
+        <label for="" class="form-label">Valor do produto (em U$):</label>
+        <input type="number" class="form-control" step = "any" name="txtvalorprod"  id="txtvalorprod" placeholder="Informe o valor total em U$">
+        <br/>
+
+        <label for="" class="form-label">Frete internacional (em U$):</label>
+        <input type="number" class="form-control" step = "any" name="txtvalorfreteint"  id="txtvalorfreteint" placeholder="Informe o valor do frete em U$">
+        <br/>
+
+        <label for="" class="form-label"> Seguro Internacional (em U$):</label>
+        <input type="number" class="form-control" step = "any" name="txtvalorseguroint"  id="txtvalorseguroint" placeholder="Informe o valor do seguro em U$">
+        <br/>
+
+        <label for="" class="form-label"> Tarifas THC (em U$): </label>
+        <input type="number" class="form-control" step = "any" name="txtvalorthc" id="txtvalorthc" placeholder="Informe o valor com tarifas de manuseio de carga em U$">
+        <br/>       
+
+        
+    </div>
+
+        <h3> <b> B) Alíquotas - tributos federais e estaduais </b> </h3> 
+
+    <div class="mb-3">
+            
+            <label for="" class="form-label"> Alíquota de II (em %): </label>
+            <input type="number" class="form-control" step = "any" name="txtaliqii" value = "{{simulacao[10]}}" id="txtaliqii" placeholder="% de Imposto de Importação">
+            <br/>   
+        
+            <label for="" class="form-label"> Alíquota de IPI (em %): </label>
+            <input type="number" class="form-control" step = "any" name="txtaliqipi" value = "{{simulacao[11]}}" id="txtaliqipi" placeholder="% de Imposto sobre Produtos Industrializados">
+            <br/>
+
+
+            <label for="" class="form-label"> Alíquota de PIS (em %): </label>
+            <input type="number" class="form-control" step = "any" name="txtaliqpis" value = "{{simulacao[12]}}" id="txtaliqpis" placeholder="% de PIS">
+            <br/>
+
+            <label for="" class="form-label"> Alíquota de COFINS (em %): </label>
+            <input type="number" class="form-control" step = "any" name="txtaliqcofins" value = "{{simulacao[13]}}" id="txtaliqcofins" placeholder="% de COFINS">
+            <br/>
+
+            <label for="" class="form-label"> Alíquota de ICMS (em %): </label>
+            <input type="number" class="form-control" step = "any" name="txtaliqicms" value = "{{simulacao[14]}}" id="txtaliqicms" placeholder="% de ICMS">
+            <br/>
+
+    </div>
+
+    <h3> <b> C) Despesas Aduaneiras </b> </h3> 
+    
+    <div class="mb-3">
+        
+            
+        <label for="" class="form-label"> Anuência de Licença de Importação (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txlicenca" value = "{{simulacao[21]}}" id="txlicenca" placeholder="Informe a taxa de licenciamento em R$">
+        <br/>   
+    
+        <label for="" class="form-label"> Taxa de Utilização do SISCOMEX (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txsiscomex" value = "{{simulacao[22]}}" id="txsiscomex" placeholder="Informe a taxa do SISCOMEX em R$">
+        <br/>
+
+
+        <label for="" class="form-label"> Despesas com Liberação do BL (Agente Carga) em R$: </label>
+        <input type="number" class="form-control" step = "any" name="txbl" value = "{{simulacao[23]}}" id="txbl" placeholder="Despesas com Liberação do BL">
+        <br/>
+
+        <label for="" class="form-label"> Honorário Despachante Aduaneiro (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txdespadn" value = "{{simulacao[24]}}" id="txdespadn" placeholder="Honorários com o despachante aduaneiro">
+        <br/>
+
+        <label for="" class="form-label"> AFRMM - Adicional de Frete p/Renovação da Marinha Mercante (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txafrmm" value = "{{simulacao[25]}}" id="txafrmm" placeholder="Valor da AFRMM">
+        <br/>
+
+        <label for="" class="form-label"> Transferência de CNTR (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txtransfcont" value = "{{simulacao[26]}}" id="txtransfcont" placeholder="Valor com transf. de cont.">
+        <br/>
+
+        <label for="" class="form-label"> Devolução de CNTR Vazio (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txdevolcont" value = "{{simulacao[27]}}" id="txdevolcont" placeholder="Valor da devolulão de cont.">
+        <br/>
+
+        <label for="" class="form-label"> Taxa de Segregação no Porto (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txtsegrporto" value = "{{simulacao[28]}}" id="txtsegrporto" placeholder="Valor taxa de segregação no produto">
+        <br/>
+
+        <label for="" class="form-label"> Armazenagem no Porto - Estimativa (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txarm" value = "{{simulacao[29]}}" id="txarm" placeholder="Estimativa de custo com armazenagem no porto">
+        <br/>
+
+        <label for="" class="form-label"> Taxa de movimentação de CNTR no Porto (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txmov" value = "{{simulacao[30]}}" id="txmov" placeholder="Taxa de movimentação de cont no porto">
+        <br/>        
+
+        <label for="" class="form-label"> Taxa de desova de CNTR no Porto (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txdesova" value = "{{simulacao[31]}}" id="txdesova" placeholder="Taxa de desova no Porto">
+        <br/>
+ 
+        <label for="" class="form-label"> Taxa de carregamento no Porto (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txcarreg" value = "{{simulacao[32]}}" id="txcarreg" placeholder="Taxa de desova no Porto">
+        <br/>
+
+        <label for="" class="form-label"> Entrega da Mercadoria no Armazém do Importador (R$): </label>
+        <input type="number" class="form-control" step = "any" name="txentrega" value = "{{simulacao[33]}}" id="txentrega" placeholder="Valor do frete local">
+        <br/>
+
+
+
+</div>
+
+
+
+
+
+
+    <input type="submit" class="btn btn-success" value="Registrar">
+    <a href=" {{url_for('index')}} " class= "btn btn-danger">Cancelar</a>           
+
+
+
+
+
+                </p>
+        </div>
+    </div>
+    
+    
+    
+    
+
+</form>
+
+
+
+
+{% endfor %}
+
+{% include 'footer.html' %}

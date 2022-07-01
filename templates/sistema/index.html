@@ -1,0 +1,64 @@
+{% include 'header.html' %} 
+
+
+
+    <br/>
+    <a href="/criar" class="btn btn-success"> 
+        Cadastrar nova
+    </a>
+    <br/>
+    <br/>
+
+    <table class="table table-light" >
+        <thead class="thead-light">
+            <tr align = "center" >
+                <th valign="middle">ID </th>
+                <th>Data <br/> Registro</th>
+                <th>Invoice</th>
+                <th>NCM</th>
+                <th>Valor <br/> Aduaneiro </th>
+                <th>Despesas <br/> Aduaneiras</th>
+                <th>Tributos <br/> (Est / Fed.) </th>
+                <th>Total <br/> Geral</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for simulacao in simulacao %}
+            <tr>
+                <td align = "center" >{{simulacao[0]}}</td>
+                <td align ="center">{{simulacao[1]}}</td>
+                <td align = "center">{{simulacao[3]}}</td>
+                <td align = "center">{{simulacao[2]}}</td>
+                <td align = "center">{{ "R$ %.2f" | format(simulacao[9] )   }}</td>
+                <td align = "center">{{ "R$ %.2f" | format(simulacao[34])   }}</td>
+                <td align = "center">{{ "R$ %.2f" | format(simulacao[20])   }}</td>
+                <td align = "center">{{ "R$ %.2f" | format(simulacao[35])   }}</td>
+                <td align = "center" > 
+                    
+                    
+                    <a class="btn btn-primary" href="/vermais/{{simulacao[0]}}">
+                   Ver +
+                    </a>
+                    <br/>
+                    <br/>
+                    
+                    
+                    <a class="btn btn-warning" href="/editar/{{simulacao[0]}}">Editar</a>
+
+                    <br/>
+                    <br/>
+
+                    <a onclick="return confirm('Deseja apagar a simulação?')" class="btn btn-danger" href="/apagar/{{simulacao[0]}}">Excluir</a>
+                
+                </td>
+                
+            </tr>  
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+
+{% include 'footer.html' %}
